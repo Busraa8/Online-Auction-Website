@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Abel", sans-serif;
+    font-size: 10px;
+    scroll-behavior: smooth;
+  }
+  .wrapper {/*bir bölüm*/
+    width: auto;
+    height: 100%;
+    height: 90%;
+    
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://contemporarylynx.co.uk/wp-content/uploads/2019/09/auction-hammer.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: opacity(80%);
+  }
+  .wrapper2 {/*bir bölüm*/
+    width: auto;
+    height: 100%;
+    height: 90%;
+    background-color: rgba(224, 222, 222, 0.5);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+  
+  .wrappercontact {
+    width: auto;
+    height: 100%;
+    height: 60%;
+    background-color: rgba(224, 222, 222, 0.5);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    transition: flex .4s ease;
+    position: relative;
+  }
+  
+  .section .overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: background-color .8s ease;
+  }
+  
+  .section .content {
+    z-index: 10;
+  }
+  
+  
+  #one {
+    background-image: url(https://img.fruugo.com/product/9/39/185956399_max.jpg);
+  }
+
+  #two {
+    background-image: url(https://www.anticstore.com/DocBD/commerce/antiquaire/galerie-lamy-chabolle-763/objet/87495/AnticStore-Large-Ref-87495.jpg);
+  }
+  
+  
+  #three {
+    background-image: url(https://img.joomcdn.net/8f73047ccd4359d1eca4f33398a069f84c81daca_original.jpeg);
+  
+    
+    
+    }
+  
+  
+  .Container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav {/*üst kısım*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.521);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+  }
+  .logo {
+    font-family: "Abel", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0.7rem;
+    color: white;
+    margin: 4%;
+  }
+  .menu {
+    display: inline-block;
+    line-height: 80px;
+  }
+  .menu ul {
+    list-style: none;
+  }
+  .menu ul li {
+    display: inline-block;
+  }
+  .menu ul li a {
+    text-decoration: none;
+    font-family: "Abel", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: 0.5s ease;
+  }
+  .menu ul li a:hover {
+    border-color: white;
+  }
+  .menu ul li:nth-child(5) a {/*regisrion ilk görünüm*/
+    color: #e7e1e1;
+    border: 1px solid #e7e1e1;
+  }
+  .menu ul li:nth-child(5) a:hover {
+    color: black;
+    background-color: #4e4e4e;
+  }
+  .header {
+    text-align: center;
+    
+  }
+  .header h1 {
+    font-family: "Abel", sans-serif;
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    color: white;
+    padding: 45% 20px 8px;
+  }
+  .header h2{/*about us*/
+  
+    font-family: "Abel", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+        color: rgb(0, 0, 0);
+        padding: 10px 15px;
+        word-wrap: break-word;
+  }
+
+  .header p {
+    font-family: "Abel", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    color: white;
+    padding: 10px 15px;
+  }
+  
+  button {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.15rem;
+    color: black;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    margin: 50px 5px 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #contact{
+    float:inherit;
+    margin-top: 15px;
+  }
+  #contact  li{
+    display: inline;
+    size: 50px;
+    margin-right: 40px;
+    font-size: 50px;
+    color:rgb(0, 0, 0);
+  }
+  #contact li a{
+    color: rgb(0, 0, 0);
+    
+  }  
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0,0,0,.85);
+    margin-top: 20px;
+    color: aliceblue;
+  }
+        
+  .color{
+      color: aliceblue;
+      
+  }      
+         
+  
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
+   .btn-group .button {
+    background-color:cornflowerblue;
+    border: 1px solid aliceblue;
+    color: black;
+    padding: 15px 32px;
+    text-align:left;
+    text-decoration:none;
+    display:inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    
+  }
+  
+  .btn-group .button:not(:last-child) {
+    border-right-color: aliceblue;
+  }
+  
+  .btn-group .button:hover {
+    background-color: #999;
+  }
+   
+         
+  #box{
+     
+      width: 1200px;
+      height: 300px;
+      background-color: rgba(0, 0, 0, 0.85);
+      margin: auto;
+      border-radius:3px;
+      box-shadow: 5px 5px 6px rgb(18, 18, 18);
+      margin-top: 100px;
+      padding: 20px; 
+      background-image: url("https://cutewallpaper.org/21/black-grey-background/abstract-dark-animated-background-grey-wavy-stripes-on-black-.png");
+             
+   }   
+   .right{
+    float: right;
+  
+    width: 250px;
+  }
+  input[type=date], select {
+    width: 180px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+  input[type=number], select {
+    width: 180px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+  
+  input[type=time], select {
+      width: 180px;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      }
+         
+  input[type=submit] {
+    width: 200px;
+    background-color:#593dc0;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    
+  input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #999;
+    color: black;
+    }
