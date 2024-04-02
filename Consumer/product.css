@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Abel", sans-serif;
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+.wrapper {/*bir bölüm*/
+  width: auto;
+  height: 14%;
+ 
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://contemporarylynx.co.uk/wp-content/uploads/2019/09/auction-hammer.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: opacity(80%);
+}
+
+.Container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav {/*üst kısım*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid rgba(12, 12, 12, 0.521);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+.logo {
+  font-family: "Abel", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.7rem;
+  color: rgb(19, 19, 19);
+  margin: 4%;
+}
+.menu {
+  display: inline-block;
+  line-height: 80px;
+}
+.menu ul {
+  list-style: none;
+}
+.menu ul li {
+  display: inline-block;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  font-family: "Abel", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  color: black; 
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin: 0 5px;
+  transition: 0.5s ease;
+}
+
+.menu ul li a:hover {
+  border-color: rgb(20, 20, 20);
+}
+.menu ul li:nth-child(5) a {/*regisrion ilk görünüm*/
+  color: #212020;
+  border: 1px solid #202020;
+}
+.menu ul li:nth-child(5) a:hover {
+  color: black;
+  background-color: #4e4e4e;
+}
+.header {
+  text-align: center;
+  
+}
+.header h1 {
+  font-family: "Abel", sans-serif;
+  font-size: 4rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  color: rgb(18, 18, 18);
+  padding: 45% 20px 8px;
+}
+.header h2{/*about us*/
+
+  font-family: "Abel", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.2rem;
+      color: rgb(0, 0, 0);
+      padding: 10px 15px;
+      word-wrap: break-word;
+}
+
+.header p {
+  font-family: "Abel", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  color: rgb(12, 12, 12);
+  padding: 10px 15px;
+}
+
+button {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.15rem;
+  color: black;
+  background-color: #0e0e0e;
+  padding: 20px 30px;
+  margin: 50px 5px 0;
+  border: none;
+  cursor: pointer;
+}
+    
+       
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+ .btn-group .button {
+  border: 1px solid rgb(0, 0, 0);
+  color: black;
+  padding: 15px 32px;
+  text-align:left;
+  text-decoration:none;
+  display:inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  
+}
+
+.btn-group .button:not(:last-child) {
+  border-right-color: rgb(14, 14, 14);
+}
+
+.btn-group .button:hover {
+  background-color: #999;
+}
+ 
+       
+
+    

@@ -93,13 +93,13 @@ if (isset($_POST['login'])) {
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Locations</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="login.html"><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></a></li>
+                    <li><a href="../login.php"><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></a></li>
                 </ul>
             </div>
         </div>
         <div class="header">
             <h1>Welcome to Online Auction</h1>
-            <button type="button">All Products</button>
+            <button type="button" onclick="window.location.href='products.php'">All Products</button>
         </div>
     </div>
 </div>
@@ -134,7 +134,7 @@ if (isset($_POST['login'])) {
     <div class="header">
       <h2 > Address <br><br><br>
         Phone:00-000-000-0000&nbsp - &nbsp Fax:11-111-111-1111 &nbsp - &nbsp
-        Email:info@rentacar.com</h2>
+        Email:info@.com</h2>
 
         <div class="icon">
        
