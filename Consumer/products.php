@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
             $_SESSION['first_name'] = $firstName;
             $_SESSION['last_name'] = $lastName;
             header("location: Consumer/homepage.php");
-            exit; // Bu satırı ekleyerek işlem sonlandırılır
+            exit; 
         } else {
             echo "Undefined user role";
         }
@@ -54,6 +54,19 @@ if (isset($_POST['login'])) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="keywords" content="">
 <meta name="description" content="">
+<style>
+    /* Resim bölümünü stilleyelim */
+.frame {
+    text-align: center; /* Resmi yatay olarak ortala */
+    margin-top: 50px; /* Üst boşluk ekleyerek aşağı indir */
+}
+
+/* Resimlerin maksimum genişliğini ayarlayalım */
+.frame img {
+    max-width: 100%; /* Resmin genişliğini ayarla */
+    height: auto; /* Oranları koru */
+}
+</style>
 
 
 <!--Bootstrap -->
@@ -85,8 +98,6 @@ if (isset($_POST['login'])) {
 
 <body>
 
-
-<!-- Resent Cat-->
 <section class="section-padding gray-bg">
   <div class="container">
     <div class="row"> 
@@ -96,7 +107,7 @@ if (isset($_POST['login'])) {
         <div role="tabpanel" class="tab-pane active" id="resentnewantique">
 
         <?php
-$sql = "SELECT products.product_name, products.price, products.deadline, products.image
+$sql = "SELECT products.product_name, products.product_id, products.price, products.deadline, products.image
         FROM products";
 $query = $dbh->prepare($sql);
 $query->execute();
@@ -108,7 +119,7 @@ if ($query->rowCount() > 0) {
 <div class="col-list-3">
     <div class="recent-antique-list">
         <div class="antique-info-box"> 
-            <a href="homepage.php?vhid=<?php echo htmlentities($result->id);?>">
+                <a href="product_details.php?vhid=<?php echo htmlentities($result->product_id); ?>">
                 <img src="img/images/<?php echo htmlentities($result->image);?>" class="img-responsive" alt="image">
             </a>
             <ul>
@@ -117,7 +128,7 @@ if ($query->rowCount() > 0) {
             </ul>
         </div>
         <div class="antique-title-m">
-            <h6><a href="homepage.php?vhid=<?php echo htmlentities($result->id);?>"><?php echo htmlentities($result->product_name);?></a></h6>
+        <h6><a href="product_details.php?vhid=<?php echo htmlentities($result->product_id); ?>"><?php echo htmlentities($result->product_name);?></a></h6>
             <span class="price">$<?php echo htmlentities($result->price);?> /Day</span> 
         </div>
         <div class="inventory_info_m">
@@ -135,8 +146,6 @@ if ($query->rowCount() > 0) {
     </div>
   </div>
 </section>
-
-<!-- /Resent Cat --> 
 
 </body>
 </html>
