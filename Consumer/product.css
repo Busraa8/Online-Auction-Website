@@ -39,18 +39,6 @@
   z-index: 999; /* Menüyü en üste getir */
 }
 
-/* Çerçeve altta kalsın */
-.frame {
-  border: 2px solid #ccc;
-  padding: 20px;
-  max-width: 600px;
-  width: 80%;
-  position: absolute; /* Mutlak konumlandırma */
-  top: 150px; /* Sayfanın üstünden 150px aşağıya */
-  left: 50%; /* Yatayda ortala */
-  transform: translateX(-50%); /* Yatayda ortalamak için */
-}
-
 .logo {
   font-family: "Abel", sans-serif;
   font-size: 2.5rem;
@@ -174,13 +162,11 @@ button {
   background-color: #999;
 }
 
-/* Resim bölümünü stilleyelim */
 .frame {
   text-align: center; /* Resmi yatay olarak ortala */
   margin-top: 50px; /* Üst boşluk ekleyerek aşağı indir */
 }
 
-/* Resimlerin maksimum genişliğini ayarlayalım */
 .frame img {
   max-width: 100%; /* Resmin genişliğini ayarla */
   height: auto; /* Oranları koru */

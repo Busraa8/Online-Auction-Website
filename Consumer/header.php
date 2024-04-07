@@ -89,7 +89,7 @@ if (isset($_POST['login'])) {
             </div>
             <div class="menu">
                 <ul class="navMenu">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="homepage.php">Home</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Locations</a></li>
                     <li><a href="#">Contact</a></li>

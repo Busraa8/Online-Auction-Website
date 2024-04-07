@@ -27,9 +27,11 @@ if (isset($_POST['login'])) {
         if ($role == "consumer") {
             $firstName = $row["name"];
             $lastName = $row["surname"];
-            // Kullanıcının adı ve soyadını session'a kaydetme
+            $userID = $row["id"]; // Kullanıcı ID'sini al
+            // Kullanıcının adı, soyadı ve ID'sini session'a kaydetme
             $_SESSION['first_name'] = $firstName;
             $_SESSION['last_name'] = $lastName;
+            $_SESSION['id'] = $userID; // Kullanıcı ID'sini session'a kaydetme
             header("location: Consumer/homepage.php");
             exit; // Bu satırı ekleyerek işlem sonlandırılır
         } else {

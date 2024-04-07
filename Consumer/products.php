@@ -54,19 +54,7 @@ if (isset($_POST['login'])) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="keywords" content="">
 <meta name="description" content="">
-<style>
-    /* Resim bölümünü stilleyelim */
-.frame {
-    text-align: center; /* Resmi yatay olarak ortala */
-    margin-top: 50px; /* Üst boşluk ekleyerek aşağı indir */
-}
 
-/* Resimlerin maksimum genişliğini ayarlayalım */
-.frame img {
-    max-width: 100%; /* Resmin genişliğini ayarla */
-    height: auto; /* Oranları koru */
-}
-</style>
 
 
 <!--Bootstrap -->
@@ -74,29 +62,9 @@ if (isset($_POST['login'])) {
 <link rel="stylesheet" href="style_product.css" type="text/css">
 
 </head>
-<section class="section-pading gray-bg">
-<link rel="stylesheet" href="product.css">
-<div class="wrapper">
-  <div class="Container">
-        <div class="nav">
-            <div class="logo">
-                ONLINE AUCTION
-            </div>
-            <div class="menu">
-                <ul class="navMenu">
-                    <li><a href="#" >Home</a></li>
-                    <li><a href="#" >About us</a></li>
-                    <li><a href="#" >Locations</a></li>
-                    <li><a href="#" >Contact</a></li>
-                    <li><a href="login.html"><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
 
 <body>
+<?php include 'header.php'; ?> 
 
 <section class="section-padding gray-bg">
   <div class="container">
