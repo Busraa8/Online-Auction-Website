@@ -1,0 +1,28 @@
+table {
+    width: 80%; 
+    margin: auto; 
+    border-collapse: collapse; /* Tablo hücreleri arasındaki boşlukları kaldır */
+}
+
+/* Tablo başlığı stilleri */
+th {
+    background-color: #333; 
+    color: white; 
+    padding: 10px; 
+    text-align: left; 
+}
+
+/* Tablo satırları stilleri */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Çift satırların arka plan rengi */
+}
+
+tr:nth-child(odd) {
+    background-color: white; /* Tek satırların arka plan rengi */
+}
+
+/* Tablo hücreleri stilleri */
+td {
+    padding: 8px; 
+    text-align: left; 
+}
