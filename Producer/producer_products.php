@@ -6,6 +6,18 @@
     <title>Header and Sidebar</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="table.css">
+    <script>
+        // JavaScript 
+        function openProductDetails(productId) {
+            window.location.href = 'product_details_producer.php?product_id=' + productId;
+        }
+    </script>
+    <style>
+        
+        tbody tr:hover {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -36,14 +48,15 @@
                 </thead>
                 <tbody>
                     <?php
-                    include 'connection.php'; // Veritabanı bağlantısı
-                    $sql = "SELECT product_id, product_name, price FROM products"; // Products tablosundan verileri seç
+                    include 'connection.php'; 
+                    $sql = "SELECT product_id, product_name, price FROM products"; 
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         // Veritabanından gelen her bir satır için tabloyu oluştur
                         while($row = $result->fetch_assoc()) {
-                            echo "<tr><td>" . $row["product_id"]. "</td><td>" . $row["product_name"] . "</td><td>" . $row["price"]. "</td></tr>";
+                            // Her satırın tamamına tıklama işlevini ekleyerek ürün detaylarını aç
+                            echo "<tr onclick='openProductDetails(" . $row["product_id"] . ")'><td>" . $row["product_id"]. "</td><td>" . $row["product_name"] . "</td><td>" . $row["price"]. "</td></tr>";
                         }
                     } else {
                         echo "<tr><td colspan='3'>Veritabanında hiç ürün bulunamadı.</td></tr>";
@@ -56,3 +69,4 @@
     </div>
 </body>
 </html>
+
