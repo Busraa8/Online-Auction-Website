@@ -20,7 +20,7 @@
                 <li><a href="producer_products.php">Products</a></li>
                 <li><a href="users.php">Users</a></li>
                 <li><a href="add_product.php">Add Product</a></li>
-                <li><a href="#">Link 4</a></li>
+                <li><a href="settings.php">Settings</a></li>
             </ul>
         </aside>
         <main>

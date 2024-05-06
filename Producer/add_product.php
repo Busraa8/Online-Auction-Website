@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header and Sidebar</title>
+    <title>Add Product</title>
     <link rel="stylesheet" href="style.css">
     <style>
         main {
@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
                 <li><a href="producer_products.php">Products</a></li>
                 <li><a href="users.php">Users</a></li>
                 <li><a href="add_product.php">Add Product</a></li>
-                <li><a href="#">Link 4</a></li>
+                <li><a href="settings.php">Settings</a></li>
             </ul>
         </aside>
         <main>
