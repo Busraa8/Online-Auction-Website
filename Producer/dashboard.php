@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header and Sidebar</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .user-icon {
+            position: relative;
+            display: inline-block;
+        }
+        .logout-text {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 5px;
+            z-index: 1;
+            font-weight: bold;
+        }
+        .user-icon:hover .logout-text {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Header</h1>
         <div class="user-icon">
-            <img src="https://cdn-icons-png.freepik.com/512/1144/1144760.png" alt="User Icon"> 
+            <img src="https://cdn-icons-png.freepik.com/512/1144/1144760.png" alt="User Icon">
+            <!-- Çıkış yap metni -->
+            <div class="logout-text">
+                <form action="logout.php" method="post">
+                    <button type="submit" name="logout">Logout</button>
+                </form>
+            </div>
         </div>
     </header>
     <div class="container">
@@ -21,6 +48,7 @@
                 <li><a href="users.php">Users</a></li>
                 <li><a href="add_product.php">Add Product</a></li>
                 <li><a href="settings.php">Settings</a></li>
+                <li><a href="company_info.php">Homepage Settings</a></li>
             </ul>
         </aside>
         <main>
@@ -30,4 +58,7 @@
     </div>
 </body>
 </html>
+
+
+
 

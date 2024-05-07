@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
+    <title>Update Company Information</title>
     <link rel="stylesheet" href="style.css">
     <style>
         main {
@@ -24,7 +24,10 @@
         }
 
         form label {
-            display: block; 
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            margin-right: 20px;
             margin-bottom: 10px; 
             font-weight: bold; 
         }
@@ -35,17 +38,14 @@
         form input[type="tel"],
         form input[type="password"],
         form textarea {
-            width: calc(100% - 16px);
+            width: calc(100% - 150px);
             padding: 8px; 
             margin-bottom: 10px; 
             box-sizing: border-box;  
         }
 
-        form input[type="file"] {
-            margin-bottom: 20px; 
-        }
-
         form input[type="submit"] {
+            margin-left: 120px; 
             padding: 10px 20px; 
             background-color: #4CAF50;
             color: white; 
@@ -79,29 +79,37 @@
             </ul>
         </aside>
         <main>
-            <form action="update_user.php" method="POST" enctype="multipart/form-data">
-                <h2>Update User Information</h2> 
-                <input type="hidden" name="id" value="2">
+            <form action="update_company_info.php" method="POST" enctype="multipart/form-data">
+                <h2>Update Company Information</h2>
+                <label for="about_us" style="vertical-align: top;">About Us:</label>
+                <textarea name="about_us" id="about_us"></textarea><br><br>
                 
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br><br>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address"><br><br>
                 
-                <label for="surname">Surname:</label>
-                <input type="text" id="surname" name="surname"><br><br>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"><br><br>
+                
+                <label for="fax">Fax:</label>
+                <input type="tel" id="fax" name="fax"><br><br>
                 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email"><br><br>
                 
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" style="width: calc(100% - 16px);"><br><br>
+                <label for="facebook">Facebook:</label>
+                <input type="text" id="facebook" name="facebook"><br><br>
                 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password"><br><br>
+                <label for="instagram">Instagram:</label>
+                <input type="text" id="instagram" name="instagram"><br><br>
                 
-                <input type="submit" name="update_user" value="Update Information">
+                <label for="linkedin">Linkedin:</label>
+                <input type="text" id="linkedin" name="linkedin"><br><br>
+                
+                <input type="submit" name="update_company_info" value="Update Information">
             </form>
         </main>
     </div>
 </body>
 </html>
+
 

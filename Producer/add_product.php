@@ -116,6 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
                 <li><a href="users.php">Users</a></li>
                 <li><a href="add_product.php">Add Product</a></li>
                 <li><a href="settings.php">Settings</a></li>
+                <li><a href="company_info.php">Homepage Settings</a></li>
             </ul>
         </aside>
         <main>

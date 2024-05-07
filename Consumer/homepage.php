@@ -6,20 +6,38 @@ include 'config.php';
 // Veritabanı bağlantısı oluşturma
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Bağlantıyı kontrol etme
+
 if ($conn->connect_error) {
     die("Veritabanı bağlantısı başarısız: " . $conn->connect_error);
 }
 
-$sql = "SELECT about_us FROM company_info WHERE id = 1"; // id = 1 olan satırı seç
-$result = $conn->query($sql);
 
-// Sonuçları kontrol etme
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $aboutUsText = $row["about_us"];
+$sql_about = "SELECT about_us FROM company_info WHERE id = 1"; // id = 1 olan satırı seç
+$result_about = $conn->query($sql_about);
+
+
+if ($result_about->num_rows > 0) {
+    $row_about = $result_about->fetch_assoc();
+    $aboutUsText = $row_about["about_us"];
 } else {
-    echo "Hata: Kayıt bulunamadı";
+    echo "Hata: ABOUT US kayıt bulunamadı";
+}
+
+$sql_contact = "SELECT address, phone, fax, email, facebook, instagram, linkedin, email_icon FROM company_info WHERE id = 1"; // id = 1 olan satırı seç
+$result_contact = $conn->query($sql_contact);
+
+if ($result_contact->num_rows > 0) {
+    $row_contact = $result_contact->fetch_assoc();
+    $address = $row_contact["address"];
+    $phone = $row_contact["phone"];
+    $fax = $row_contact["fax"];
+    $email = $row_contact["email"];
+    $facebook = $row_contact["facebook"];
+    $instagram = $row_contact["instagram"];
+    $linkedin = $row_contact["linkedin"];
+    $email_icon = $row_contact["email_icon"];
+} else {
+    echo "Hata: ADRES, TELEFON, FAX, EMAIL veya ICON bağlantıları kayıt bulunamadı";
 }
 
 // Veritabanı bağlantısını kapatma
@@ -53,16 +71,15 @@ if (isset($_POST['login'])) {
             $_SESSION['first_name'] = $firstName;
             $_SESSION['last_name'] = $lastName;
             header("location: Consumer/homepage.php");
-            exit; // Bu satırı ekleyerek işlem sonlandırılır
+            exit; 
         } else {
             echo "Undefined user role";
         }
     } else {
-        // Kullanıcı bulunamadı veya hatalı giriş
+        
         echo "Invalid email or password";
     }
 
-    // Veritabanı bağlantısını kapatma
     $conn->close();
 }
 ?>
@@ -132,19 +149,19 @@ if (isset($_POST['login'])) {
 <div class="wrappercontact">
   <div class="Container">
     <div class="header">
-      <h2 > Address <br><br><br>
-        Phone:00-000-000-0000&nbsp - &nbsp Fax:11-111-111-1111 &nbsp - &nbsp
-        Email:info@.com</h2>
+        <h2> Address <br><br><br>
+        <?php echo $address; ?><br><br>
+        Phone: <?php echo $phone; ?>&nbsp - &nbsp Fax: <?php echo $fax; ?> &nbsp - &nbsp
+        Email: <?php echo $email; ?>
+    </h2>
 
         <div class="icon">
        
           <ul id="contact">
-            <li ><a href="https://tr-tr.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
-            <li><a href="https://www.instagram.com/?hl=tr" target="_blank"><i class="fab fa-instagram-square"></i></a></li>
-            <li><a href="https://twitter.com/?lang=tr" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://tr.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-            <li><a href="https://mail.google.com/mail/u/0/?view=cm&source=mailto&to=busrasargeyik@gmail.com&fs=1&tf=1" target="_blank"><i class="fas fa-envelope"></i></a></li>
-            
+            <li ><a href="<?php echo $facebook; ?>" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+            <li><a href="<?php echo $instagram; ?>" target="_blank"><i class="fab fa-instagram-square"></i></a></li>
+            <li><a href="<?php echo $linkedin; ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="https://mail.google.com/mail/u/0/?view=cm&source=mailto&to=<?php echo $email_icon; ?>&fs=1&tf=1" target="_blank"><i class="fas fa-envelope"></i></a></li>
           </ul>
         </div>
 
@@ -152,3 +169,4 @@ if (isset($_POST['login'])) {
    
   </div>
 </div>
+
