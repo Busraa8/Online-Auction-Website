@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 include 'config.php';
 
@@ -92,7 +92,7 @@ if (isset($_POST['login'])) {
                     <li><a href="homepage.php">Home</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Locations</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     <li><a href="../login.php"><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></a></li>
                 </ul>
             </div>

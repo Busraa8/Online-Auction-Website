@@ -32,6 +32,12 @@
             font-weight: bold; 
         }
 
+        form textarea[name="about_us"] {
+            width: calc(100% - 150px);
+            height: 100px; 
+            margin-bottom: 20px; 
+        }
+
         form input[type="text"],
         form input[type="number"],
         form input[type="email"],
