@@ -1,12 +1,8 @@
 <?php
-
-
 include 'config.php';
 
-// Veritabanı bağlantısı oluşturma
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Bağlantıyı kontrol etme
 if ($conn->connect_error) {
     die("Veritabanı bağlantısı başarısız: " . $conn->connect_error);
 }
@@ -14,7 +10,6 @@ if ($conn->connect_error) {
 $sql = "SELECT about_us FROM company_info WHERE id = 1"; // id = 1 olan satırı seç
 $result = $conn->query($sql);
 
-// Sonuçları kontrol etme
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $aboutUsText = $row["about_us"];
@@ -22,7 +17,15 @@ if ($result->num_rows > 0) {
     echo "Hata: Kayıt bulunamadı";
 }
 
-// Veritabanı bağlantısını kapatma
+// Okunmamış mesajları say
+if (isset($_SESSION['id'])) {
+    $userID = $_SESSION['id'];
+    $unread_messages_sql = "SELECT COUNT(*) AS unread_count FROM messages WHERE receiver_id = '$userID' AND `read` = 0";
+    $unread_messages_result = $conn->query($unread_messages_sql);
+    $unread_messages_row = $unread_messages_result->fetch_assoc();
+    $unread_count = $unread_messages_row['unread_count'];
+}
+
 $conn->close();
 
 if (isset($_POST['login'])) {
@@ -30,10 +33,8 @@ if (isset($_POST['login'])) {
     $userPassword = $_POST["password"];
     $encryptedPass = md5($userPassword);
 
-    // Veritabanı bağlantısı oluşturma
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Bağlantıyı kontrol etme
     if ($conn->connect_error) {
         die("Veritabanı bağlantısı başarısız: " . $conn->connect_error);
     }
@@ -41,7 +42,6 @@ if (isset($_POST['login'])) {
     $sql = "SELECT * FROM user_table WHERE email = '$userEmail' AND password = '$encryptedPass'";
     $result = $conn->query($sql);
 
-    // Sonuçları kontrol etme
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $role = $row["role"];
@@ -53,20 +53,18 @@ if (isset($_POST['login'])) {
             $_SESSION['first_name'] = $firstName;
             $_SESSION['last_name'] = $lastName;
             header("location: Consumer/homepage.php");
-            exit; // Bu satırı ekleyerek işlem sonlandırılır
+            exit; 
         } else {
             echo "Undefined user role";
         }
     } else {
-        // Kullanıcı bulunamadı veya hatalı giriş
+    
         echo "Invalid email or password";
     }
 
-    // Veritabanı bağlantısını kapatma
     $conn->close();
 }
 ?>
-
 
 <head>
   <meta charset="UTF-8">  
@@ -91,15 +89,11 @@ if (isset($_POST['login'])) {
                 <ul class="navMenu">
                     <li><a href="homepage.php">Home</a></li>
                     <li><a href="#">About us</a></li>
-                    <li><a href="#">Locations</a></li>
-                    <li><a href="contact.php">Contact</a></li>
-                    <li><a href="../login.php"><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></a></li>
+    
+                    <li><a href="contact.php">Contact<?php echo isset($unread_count) && $unread_count > 0 ? ' (' . $unread_count . ')' : ''; ?></a></li>
+                    <li><a href="../index.php"><?php echo $_SESSION['first_name'] . ' ' . $_SESSION['last_name']; ?></a></li>
                 </ul>
             </div>
         </div>
     </div>
-</div>
-
-
-</div>
 </div>

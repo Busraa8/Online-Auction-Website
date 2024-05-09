@@ -3,14 +3,12 @@ session_start();
 
 include 'config.php';
 
-// Veritabanı bağlantısı oluşturma
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Veritabanı bağlantısı başarısız: " . $conn->connect_error);
 }
 
-// Kullanıcı girişi kontrolü
 if (!isset($_SESSION['id'])) {
     header("location: login.php");
     exit;
@@ -54,17 +52,17 @@ $result_get_messages = $conn->query($sql_get_messages);
             margin-top: 140px;
         }
         .message-container {
-            max-height: 400px; /* Maksimum yükseklik */
-            overflow-y: auto; /* Dikey kaydırma çubuğu ekle */
-            padding: 10px; /* Kenar boşluğu ekle */
-            border: 1px solid #ccc; /* Kenar çizgisi ekle */
+            max-height: 400px; 
+            overflow-y: auto; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
         }
         .message {
             margin-bottom: 20px;
             font-size: 16px;
             display: flex;
             justify-content: flex-start;
-            width: 600px; /* Mesaj kutusunun genişliği */
+            width: 600px; 
         }
         .message.sent {
             justify-content: flex-end;
@@ -73,11 +71,11 @@ $result_get_messages = $conn->query($sql_get_messages);
             margin: 5px 10px;
         }
         .message textarea {
-            width: calc(100% - 20px); /* Text alanının genişliğini ayarla */
-            height: 100px; /* Mesaj giriş kutusunun yüksekliği */
-            resize: vertical; /* Dikey yeniden boyutlandırmayı etkinleştir */
-            margin-bottom: 10px; /* Aralığı artır */
-            padding: 10px; /* Mesaj giriş kutusunun iç boşluğu */
+            width: calc(100% - 20px); 
+            height: 100px; 
+            resize: vertical; 
+            margin-bottom: 10px; 
+            padding: 10px; 
         }
         /* Baloncuk stilleri */
         .sent .message-content {
@@ -89,13 +87,13 @@ $result_get_messages = $conn->query($sql_get_messages);
             border-radius: 10px 10px 10px 0;
         }
         .message-form {
-            text-align: right; /* Mesaj gönder formunu sağa hizala */
+            text-align: right; 
         }
         .message-form input[type="submit"] {
-            margin-top: 10px; /* Aralığı artır */
+            margin-top: 10px; 
         }
         .message-content .time {
-            text-align: right; /* Gönderim zamanını sağa hizala */
+            text-align: right; 
         }
     </style>
     <link rel="stylesheet" href="product.css">
@@ -139,6 +137,7 @@ $result_get_messages = $conn->query($sql_get_messages);
         </div>
     </div>
 </body>
+
 </html>
 
 

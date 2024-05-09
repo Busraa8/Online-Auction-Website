@@ -1,7 +1,6 @@
 <?php 
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Formdan gelen verileri al
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $email = $_POST['email'];
@@ -28,14 +27,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Veritabanına bağlanırken hata oluştu: " . $conn->connect_error);
         }
 
-        // SQL sorgusu oluşturma
-        $sql = "INSERT INTO user_table (name, surname, email, phone, password, role)
-                VALUES ('$name', '$surname', '$email', '$phone', '$hashed_password', '$role')"; // MD5 ile hashlenmiş şifre ve rol eklendi
+        // E-posta adresinin veritabanında daha önce kaydedilip kaydedilmediğini kontrol et
+        $check_email_query = "SELECT * FROM user_table WHERE email='$email'";
+        $check_email_result = $conn->query($check_email_query);
 
-        if ($conn->query($sql) === TRUE) {
-            echo "Kullanıcı başarıyla kaydedildi";
+        if ($check_email_result->num_rows > 0) {
+            echo "Bu e-posta adresi zaten kayıtlı";
         } else {
-            echo "Hata: " . $sql . "<br>" . $conn->error;
+            // E-posta adresi veritabanında bulunmuyorsa, yeni kayıt oluştur
+            $sql = "INSERT INTO user_table (name, surname, email, phone, password, role)
+                    VALUES ('$name', '$surname', '$email', '$phone', '$hashed_password', '$role')"; // MD5 ile hashlenmiş şifre ve rol eklendi
+
+            if ($conn->query($sql) === TRUE) {
+                echo "Kullanıcı başarıyla kaydedildi";
+            } else {
+                echo "Hata: " . $sql . "<br>" . $conn->error;
+            }
         }
 
         $conn->close();
@@ -78,4 +85,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="login.js"></script>
 </body>
 </html>
-

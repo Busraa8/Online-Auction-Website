@@ -6,7 +6,7 @@ $dbname = "online_auction_website";
 
 try {
     $dbh = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // PDO hata modunu ayarla
+    // PDO hata modunu ayarla -- erişmek için bir arabirim
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Veritabanı bağlantısı başarısız: " . $e->getMessage());

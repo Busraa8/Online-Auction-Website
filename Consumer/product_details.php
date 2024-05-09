@@ -12,26 +12,23 @@ if(isset($_POST['submit'])) {
 
 // Eğer fiyat güncelleme düğmesi tıklandıysa
 if(isset($_POST['update_price'])) {
-    $vhid = intval($_GET['vhid']); // vhid'yi al
+    $vhid = intval($_GET['vhid']); //view id
 
-    // Hata modunu ayarla
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Sorguyu hazırla ve çalıştır
     $sql = "SELECT * FROM products WHERE product_id=:vhid";
     $query = $dbh->prepare($sql);
     $query->bindParam(':vhid', $vhid, PDO::PARAM_INT);
     $query->execute();
 
-    // Sorgu sonuçlarını al
     $result = $query->fetch(PDO::FETCH_ASSOC);
 
     // Yeni fiyatı al
     $new_price = $_POST['new_price'];
 
     // Kontrol et: Yeni fiyatın mevcut fiyattan düşük olup olmadığını kontrol et
-    if ($new_price < $result['price']) {
-        $error_message = "Yeni fiyat mevcut fiyattan küçük olamaz.";
+    if ($new_price <= $result['price']) {
+        $error_message = "Yeni fiyat mevcut fiyattan küçük veya mevcut fiyata eşit olamaz.";
     } else {
         // Kullanıcı ID'sini al
         $user_id = $_SESSION['id'];

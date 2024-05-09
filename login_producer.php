@@ -10,14 +10,14 @@ if (isset($_POST['login'])) {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // Kullanıcı bulundu
+        // Kullanıcı bulundu ise
         $row = $result->fetch_assoc();
         $role = $row["role"];
         $id = $row["id"];
         $_SESSION["userid"] = $id; // Kullanıcı kimliğini sakla
         // Kullanıcının rolüne göre yönlendirme yapma
         if ($role == "producer") {
-            header("location: Producer/dashboard.php"); 
+            header("location: Producer/producer_product.php.php"); 
         } else {
             echo "Undefined user role";
         }

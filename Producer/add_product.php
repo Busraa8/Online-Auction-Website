@@ -1,7 +1,6 @@
 <?php
 include 'connection.php';
 
-// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
     $product_name = $_POST['product_name'];
     $price = $_POST['price'];
@@ -9,22 +8,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
     $deadline = $_POST['deadline'];
     $image_name = "";
 
-    // Check if all required fields are filled
+    // Gerekli tüm alanların doldurulup doldurulmadığını kontrol et
     if (!empty($product_name) && !empty($price) && !empty($deadline) && isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
-        // Handle image upload
+       
         $target_dir = "../Consumer/img/images/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
 
-        // Try to move the uploaded file
+        // Yüklenen dosyayı taşı
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             $image_name = basename($_FILES["image"]["name"]);
             
-            // Insert product into database
+            // Ürünü veritabanına ekle
             $sql = "INSERT INTO products (product_name, price, product_features, deadline, image) 
                     VALUES ('$product_name', '$price', '$product_features', '$deadline', '$image_name')";
 
             if ($conn->query($sql) === TRUE) {
-                // Redirect to prevent form resubmission
+                // Form yeniden gönderilmesini önlemek için
                 header("Location: add_product.php?success=true");
                 exit();
             } else {
@@ -49,6 +48,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
     <title>Add Product</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        .user-icon {
+            position: relative;
+            display: inline-block;
+        }
+        .logout-text {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 5px;
+            z-index: 1;
+            font-weight: bold;
+        }
+        .user-icon:hover .logout-text {
+            display: block;
+        }
         main {
             display: flex;
             justify-content: center;
@@ -99,24 +117,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
         form input[type="submit"]:hover {
             background-color: #45a049; 
         }
+        
     </style>
 </head>
 <body>
     <header>
-        <h1>Header</h1>
+        <h1>Online Auction Website</h1>
         <div class="user-icon">
-            <img src="https://cdn-icons-png.freepik.com/512/1144/1144760.png" alt="User Icon"> 
+            <img src="https://cdn-icons-png.freepik.com/512/1144/1144760.png" alt="User Icon">
+            <!-- Çıkış yap metni -->
+            <div class="logout-text">
+                <form action="logout.php" method="post">
+                    <button type="submit" name="logout">Logout</button>
+                </form>
+            </div>
         </div>
     </header>
     <div class="container">
         <aside>
-            <h2>Sidebar</h2>
+            <h2>Menu</h2>
             <ul>
-                <li><a href="producer_products.php">Products</a></li>
-                <li><a href="users.php">Users</a></li>
-                <li><a href="add_product.php">Add Product</a></li>
-                <li><a href="settings.php">Settings</a></li>
-                <li><a href="company_info.php">Homepage Settings</a></li>
+                <li><a href="producer_products.php">Products</a></li><br>
+                <li><a href="users.php">Users</a></li><br>
+                <li><a href="add_product.php">Add Product</a></li><br>
+                <li><a href="settings.php">Settings</a></li><br>
+                <li><a href="company_info.php">Homepage Settings</a></li><br>
             </ul>
         </aside>
         <main>
