@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
         $_SESSION["userid"] = $id; // Kullanıcı kimliğini sakla
         // Kullanıcının rolüne göre yönlendirme yapma
         if ($role == "producer") {
-            header("location: Producer/producer_product.php.php"); 
+            header("location: Producer/producer_products.php"); 
         } else {
             echo "Undefined user role";
         }

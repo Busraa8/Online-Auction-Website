@@ -19,9 +19,7 @@
                 <label for="password">Password</label>
                 <input type="submit" id="submit" name="login" class="client-info" value="LogIn">
             </form>
-            <a href="select.php" style="text-decoration: none;">
-                <button class="social" id="forgot">change user role</button>
-            </a>
+           
             <a href="signup.php" style="text-decoration: none;">
                 <button class="social" id="forgot">Sign Up</button>
             </a>

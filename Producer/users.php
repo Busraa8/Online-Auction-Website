@@ -65,7 +65,7 @@
                         <th>Surname</th>
                         <th>Email</th>
                         <th>Action</th>
-                        <th>Unread Messages</th> <!-- New column for unread message count -->
+                        <th>Unread Messages</th> 
                     </tr>
                 </thead>
                 <tbody>

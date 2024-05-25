@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="table.css">
     <script>
-        // JavaScript 
+        
         function openProductDetails(productId) {
             window.location.href = 'product_details_producer.php?product_id=' + productId;
         }

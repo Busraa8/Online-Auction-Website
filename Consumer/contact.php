@@ -77,7 +77,7 @@ $result_get_messages = $conn->query($sql_get_messages);
             margin-bottom: 10px; 
             padding: 10px; 
         }
-        /* Baloncuk stilleri */
+        /* Baloncuk */
         .sent .message-content {
             background-color: #DCF8C6;
             border-radius: 10px 10px 0 10px;

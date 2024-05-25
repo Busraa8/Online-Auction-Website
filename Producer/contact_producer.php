@@ -20,11 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['send_message'])) {
     $receiverID = $_POST['receiver_id'];
     $messageContent = $_POST['message_content'];
 
-    // Insert message into the database
+    // Veritabanına mesaj ekle
     $sql_insert_message = "INSERT INTO messages (sender_id, receiver_id, message_content, sent_at) 
                            VALUES ('2', '$receiverID', '$messageContent', CURRENT_TIMESTAMP)";
     if ($conn->query($sql_insert_message) === TRUE) {
-        // Redirect to prevent form resubmission
+        // Formun yeniden gönderilmesini önlemek için 
         header("Location: " . $_SERVER['REQUEST_URI']);
         exit;
     } else {
@@ -32,11 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['send_message'])) {
     }
 }
 
-// Retrieve messages for the current user
+// Geçerli kullanıcı için mesajları al
 if (isset($_GET['user_id'])) {
     $receiverID = $_GET['user_id'];
 
-    // Select messages for the current user and mark them as read
+    // Geçerli kullanıcı için mesajları okundu olarak işaretle
     $sql_get_messages = "SELECT * FROM messages WHERE (sender_id = '2' AND receiver_id = '$receiverID') OR (sender_id = '$receiverID' AND receiver_id = '2') ORDER BY sent_at ASC";
     $result_get_messages = $conn->query($sql_get_messages);
 

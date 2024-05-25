@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_product'])) {
         <h1>Online Auction Website</h1>
         <div class="user-icon">
             <img src="https://cdn-icons-png.freepik.com/512/1144/1144760.png" alt="User Icon">
-            <!-- Çıkış yap metni -->
+            <!-- Çıkış yap -->
             <div class="logout-text">
                 <form action="logout.php" method="post">
                     <button type="submit" name="logout">Logout</button>
